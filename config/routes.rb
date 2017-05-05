@@ -1,32 +1,49 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get 'items/find', to: "items_find#show"
-      get 'items/find_all', to: "items_find#index"
-      resources :items, only: [:index, :show]
+      namespace :items do
+        get '/find', to: "items_find#show"
+        get '/find_all', to: "items_find#index"
+        get '/', to: "items#index"
+        get '/:id', to: "items#show"
+      end
 
-      get 'merchants/find', to: "merchants_find#show"
-      get 'merchants/find_all', to: "merchants_find#index"
-      resources :merchants, only: [:index, :show]
+      namespace :merchants do
+        get '/find', to: "merchants_find#show"
+        get '/find_all', to: "merchants_find#index"
+        get '/', to: "merchants#index"
+        get '/:id', to: "merchants#show"
+      end
 
-      get 'customers/find', to: "customers_find#show"
-      get 'customers/find_all', to: "customers_find#index"
-      get 'customers/:id/invoices', to: "customer_invoices#index"
-      get 'customers/:id/transactions', to: "customer_transactions#index"
-      resources :customers, only: [:index, :show]
+      namespace :customers do
+        get '/find', to: "customers_find#show"
+        get '/find_all', to: "customers_find#index"
+        get '/:id/invoices', to: "customer_invoices#index"
+        get '/:id/transactions', to: "customer_transactions#index"
+        get '/', to: "customers#index"
+        get '/:id', to: "customers#show"
+      end
 
-      get 'invoices/find', to: "invoices_find#show"
-      get 'invoices/find_all', to: "invoices_find#index"
-      resources :invoices, only: [:index, :show]
+      namespace :invoices do
+        get '/find', to: "invoices_find#show"
+        get '/find_all', to: "invoices_find#index"
+        get '/', to: "invoices#index"
+        get '/:id', to: "invoices#show"
+      end
 
-      get 'transactions/find', to: "transactions_find#show"
-      get 'transactions/find_all', to: "transactions_find#index"
-      resources :transactions, only: [:index, :show]
+      namespace :transactions do
+        get '/find', to: "transactions_find#show"
+        get '/find_all', to: "transactions_find#index"
+        get '/', to: "transactions#index"
+        get '/:id', to: "transactions#show"
+      end
 
-      get 'invoice_items/find', to: "invoice_items_find#show"
-      get 'invoice_items/find_all', to: "invoice_items_find#index"
-      resources :invoice_items, only: [:index, :show]
-
+      namespace :invoice_items do
+        get '/find', to: "invoice_items_find#show"
+        get '/find_all', to: "invoice_items_find#index"
+        get '/', to: "invoice_items#index"
+        get '/:id', to: "invoice_items#show"
+      end
     end
   end
 end

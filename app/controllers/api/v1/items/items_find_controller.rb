@@ -1,4 +1,4 @@
-class Api::V1::ItemsFindController < ApplicationController
+class Api::V1::Items::ItemsFindController < ApplicationController
 
   before_action :convert_unit_price
 
