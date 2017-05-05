@@ -1,7 +1,6 @@
 class Api::V1::ItemsFindController < ApplicationController
 
   before_action :convert_unit_price
-  # before_action :convert_date
 
   def index
     items = Item.where(item_params)
@@ -24,11 +23,5 @@ class Api::V1::ItemsFindController < ApplicationController
       item_params[:unit_price].sub!('.', '')
     end
   end
-
-  # def convert_date
-  #   if params[:created_at]
-  #     params.merge!(created_at: DateTime.parse(params[:created_at]).getutc)
-  #   end
-  # end
 
 end
