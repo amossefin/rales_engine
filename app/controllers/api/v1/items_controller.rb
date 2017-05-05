@@ -10,8 +10,4 @@ class Api::V1::ItemsController < ApplicationController
     item.unit_price.insert(-3, '.')
     render json: item
   end
-
-  private
-
-
 end
