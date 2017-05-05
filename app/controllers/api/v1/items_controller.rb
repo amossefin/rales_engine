@@ -1,7 +1,8 @@
 class Api::V1::ItemsController < ApplicationController
 
   def index
-    render json: Item.all
+    items = Item.all
+    render json: items.to_json( :only => [:id, :name, :description, :unit_price, :merchant_id])
   end
 
   def show
@@ -9,4 +10,8 @@ class Api::V1::ItemsController < ApplicationController
     item.unit_price.insert(-3, '.')
     render json: item
   end
+
+  private
+
+
 end
