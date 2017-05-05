@@ -1,24 +1,25 @@
-# README
+# Program Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Inital Steps:
 
-Things you may want to cover:
+* Clone down this repo to your terminal
 
-* Ruby version
+* run ```bundle``` 
 
-* System dependencies
+* Setup postgresql database by running ```rake db:create```
 
-* Configuration
+* Apply migrations, run ```rake db:migrate```
 
-* Database creation
+* The database will actually be populated from .csv files in '/app/data' instead of the seed file
 
-* Database initialization
+* Insert the .csv files by running ```rake populate```
 
-* How to run the test suite
+* You can now run the application with ```rails s``` in the terminal
 
-* Services (job queues, cache servers, search engines, etc.)
+* Open a seperate terminal window while the program is running, and run the spec file on localhost:3000
 
-* Deployment instructions
+* If all went well, the spec harness tests should be passing.
 
-* ...
+* And if you get stuck, just remember...
+
+![alt text](http://s2.quickmeme.com/img/f5/f577bc2f6bad1884e3167814ae3c64c317a5f1978e2d71ec08c11d3856611256.jpg)
