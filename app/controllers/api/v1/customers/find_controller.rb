@@ -1,4 +1,4 @@
-class Api::V1::Customers::CustomersFindController < ApplicationController
+class Api::V1::Customers::FindController < ApplicationController
 
   def index
     customers = Customer.where(customer_params)

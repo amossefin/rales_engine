@@ -1,4 +1,4 @@
-class Api::V1::Merchants::MerchantsFindController < ApplicationController
+class Api::V1::Merchants::FindController < ApplicationController
 
   def index
     merchants = Merchant.where(merchant_params)
