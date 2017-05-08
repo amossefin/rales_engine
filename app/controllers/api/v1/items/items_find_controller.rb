@@ -8,8 +8,16 @@ class Api::V1::Items::ItemsFindController < ApplicationController
   end
 
   def show
-    item = Item.find_by(item_params)
-    render json: item
+    if item_params[:created_at]
+      item = Item.where(item_params).first
+      render json: item
+    elsif item_params[:updated_at]
+      item = Item.where(item_params).first
+      render json: item
+    else
+      item = Item.find_by(item_params)
+      render json: item
+    end
   end
 
   private
@@ -23,5 +31,4 @@ class Api::V1::Items::ItemsFindController < ApplicationController
       item_params[:unit_price].sub!('.', '')
     end
   end
-
 end
